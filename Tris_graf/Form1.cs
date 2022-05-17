@@ -46,7 +46,65 @@ namespace Tris_graf
         string ris = "";
 
 
-        //Funzione per calcolare solo le combinazioni vincenti
+        //Funzione per vedere il vincitore
+        public string Vincitore()
+        {
+            string winner = "";
+            for (int row = 0; row < 3; row++)
+            {
+                if (caselle[row, 0].Text == "X" && caselle[row, 1].Text == "X" && caselle[row, 2].Text == "X")
+                {
+                    
+                        MessageBox.Show("Il vincitore è il giocatore: X");
+                        break;
+                }
+                else if(caselle[row, 0].Text == "O" && caselle[row, 1].Text == "O" && caselle[row, 2].Text == "O")
+                {
+                    MessageBox.Show("Il vincitore è il giocatore: O");
+                    break;
+                }
+                
+            }
+            // Checking for Columns for X or O victory.
+            for (int col = 0; col < 3; col++)
+            {
+                if (caselle[0, col].Text == "X" && caselle[1, col].Text == "X" && caselle[2, col].Text =="X")
+                {
+                        winner = "Il vincitore è il giocatore: X";
+                        break;
+                }
+                else if (caselle[0, col].Text == "O" && caselle[1, col].Text == "O" && caselle[2, col].Text == "O")
+                
+                {
+                    winner = "Il vincitore è il giocatore: O";
+                    break;
+                }
+                
+            }
+
+            // Checking for Diagonals for X or O victory.
+            if (caselle[0, 0].Text == "X" && caselle[1, 1].Text == "X" && caselle[2, 2].Text == "X")
+            {
+                
+                winner = "Il vincitore è il giocatore: X";
+            }
+            else if (caselle[0, 0].Text == "O" && caselle[1, 1].Text == "O" && caselle[2, 2].Text == "O")
+            {
+                winner = "Il vincitore è il giocatore: O";
+            }
+            
+            if (caselle[0, 2].Text == "X" && caselle[1, 1].Text == "X" && caselle[2, 0].Text == "X")
+            {
+                
+                    winner = "Il vincitore è il giocatore: X";
+            }
+            else if (caselle[0, 2].Text == "O" && caselle[1, 1].Text == "O" && caselle[2, 0].Text == "O")
+                    {
+                    winner = "Il vincitore è il giocatore: O";
+            }
+            
+                return winner;
+        }
         
 
         private string Turno(int turno)
@@ -222,7 +280,7 @@ namespace Tris_graf
                
             }*/
             
-            ris = Comandi.Vincita(segni);
+            ris = Vincitore();
             StampaRisultato(ris);
             click++;
             Pareggio(click);
@@ -259,7 +317,7 @@ namespace Tris_graf
                 lb_turno.Text = Turno(turno);
             }*/
             segni[1] = btn01.Text;
-            ris = Comandi.Vincita(segni);
+            ris = Vincitore();
             StampaRisultato(ris);
             click++;
             Pareggio(click);
@@ -296,7 +354,7 @@ namespace Tris_graf
                 lb_turno.Text = Turno(turno);
             }*/
             segni[2] = btn02.Text;
-            ris = Comandi.Vincita(segni);
+            ris = Vincitore();
             StampaRisultato(ris);
             click++;
             Pareggio(click);
@@ -333,7 +391,7 @@ namespace Tris_graf
                 lb_turno.Text = Turno(turno);
             }*/
             segni[3] = btn10.Text;
-            ris = Comandi.Vincita(segni);
+            ris = Vincitore();
             StampaRisultato(ris);
             click++;
             Pareggio(click);
@@ -370,7 +428,7 @@ namespace Tris_graf
                 lb_turno.Text = Turno(turno);
             }*/
             segni[4] = btn11.Text;
-            ris = Comandi.Vincita(segni);
+            ris = Vincitore();
             StampaRisultato(ris);
             click++;
             Pareggio(click);
@@ -407,7 +465,7 @@ namespace Tris_graf
                 lb_turno.Text = Turno(turno);
             }*/
             segni[5] = btn12.Text;
-            ris = Comandi.Vincita(segni);
+            ris = Vincitore();
             StampaRisultato(ris);
             click++;
             Pareggio(click);
@@ -444,7 +502,7 @@ namespace Tris_graf
                 lb_turno.Text = Turno(turno);
             }*/
             segni[6] = btn20.Text;
-            ris = Comandi.Vincita(segni);
+            ris = Vincitore();
             StampaRisultato(ris);
             click++;
             Pareggio(click);
@@ -481,7 +539,7 @@ namespace Tris_graf
                 lb_turno.Text = Turno(turno);
             }*/
             segni[7] = btn21.Text;
-            ris = Comandi.Vincita(segni);
+            ris = Vincitore();
             StampaRisultato(ris);
             click++;
             Pareggio(click);
@@ -518,7 +576,7 @@ namespace Tris_graf
                 lb_turno.Text = Turno(turno);
             }*/
             segni[8] = btn22.Text;
-            ris = Comandi.Vincita(segni);
+            ris = Vincitore();
             StampaRisultato(ris);
             click++;
             Pareggio(click);
